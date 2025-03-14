@@ -10,6 +10,7 @@ type Props = {
   body: string;
   publishedAt: string;
   category: { name: string };
+  image?: { url: string }; // 画像フィールドを追加
 };
 
 // microCMSから特定の記事を取得
@@ -40,6 +41,10 @@ export default async function BlogPostPage({
         カテゴリー：{post.category && post.category.name}
       </div>{" "}
       {/* カテゴリーを表示 */}
+      {post.image && (
+        <img src={post.image.url} alt={post.title} className={styles.image} />
+      )}{" "}
+      {/* 画像を表示 */}
       <div
         className={styles.post}
         dangerouslySetInnerHTML={{ __html: post.body }}
