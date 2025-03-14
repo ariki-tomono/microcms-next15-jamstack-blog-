@@ -10,7 +10,6 @@ type Props = {
   body: string;
   publishedAt: string;
   category: { name: string };
-  rich: string;
 };
 
 // microCMSから特定の記事を取得
@@ -46,11 +45,6 @@ export default async function BlogPostPage({
         dangerouslySetInnerHTML={{ __html: post.body }}
       />{" "}
       {/* 記事本文を表示 */}
-      <div
-        className={styles.post}
-        dangerouslySetInnerHTML={{ __html: post.rich }}
-      />{" "}
-      {/* 記事本文_リッチエディタ_を表示 */}
     </main>
   );
 }
